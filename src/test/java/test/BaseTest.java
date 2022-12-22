@@ -2,7 +2,6 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 
 import java.time.Duration;
 
@@ -16,7 +15,6 @@ public class BaseTest {
         this.driver.manage().window().maximize();
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         this.driver.get(this.URL);
-        this.driver = driver;
     }
 
     public WebDriver getDriver() {
