@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+    <suite name="All Test Suite">
+        <test verbose="2" preserve-order="true" name="C:\Users\frank\Documents\Automation\MercuryToursAutomationPOM">
+            <classes><class name="test.LoginTest">
+                <methods>
+                    <include name="setUp"/>
+                    <include name="testTitle"/>
+                    <include name="testLoginSuccess"/>
+                    <include name="testLoginFail"/>
+                    <include name="testVisibleSingLink"/>
+                    <include name="tearDown"/>
+                </methods>
+            </class>
+                <class name="test.RegisterTest">
+                    <methods>
+                        <include name="setUp"/>
+                        <include name="testTitle"/>
+                        <include name="testRegister"/>
+                        <include name="testVisibleRegisterLink"/>
+                        <include name="tearDown"/>
+                    </methods></class>
+            </classes>
+        </test>
+    </suite>

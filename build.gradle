@@ -1,0 +1,33 @@
+plugins{
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '4.6.0'
+    jUnitVersion = '4.13.2'
+}
+
+dependencies {
+    testImplementation 'junit:junit:'+"$rootProject.ext.jUnitVersion"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.9.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    testImplementation "org.assertj:assertj-core:3.11.1"
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: "$rootProject.ext.seleniumVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+
+
