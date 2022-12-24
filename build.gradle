@@ -1,5 +1,6 @@
 plugins{
     id 'java'
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'org.example'
@@ -12,6 +13,14 @@ repositories {
 ext {
     seleniumVersion = '4.6.0'
     jUnitVersion = '4.13.2'
+    allureVersion = '2.20.0'
+    aspectjweaverVersion = '1.9.9.1'
+}
+
+allure {
+    version = "$rootProject.ext.allureVersion"
+    autoconfigure = true
+    aspectjweaver = true
 }
 
 dependencies {
@@ -22,10 +31,23 @@ dependencies {
     testImplementation "org.assertj:assertj-core:3.11.1"
     implementation 'org.slf4j:slf4j-simple:1.7.30'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: "$rootProject.ext.seleniumVersion"
+    implementation "io.qameta.allure:allure-junit5:$rootProject.ext.allureVersion"
+    implementation "io.qameta.allure:allure-commandline:$rootProject.ext.allureVersion"
+    implementation "io.qameta.allure:allure-assertj:$rootProject.ext.allureVersion"
+    implementation "io.qameta.allure:allure-rest-assured:$rootProject.ext.allureVersion"
+    implementation "io.qameta.allure:allure-java-commons:$rootProject.ext.allureVersion"
+    implementation "org.aspectj:aspectjweaver:$rootProject.ext.aspectjweaverVersion"
 }
 
 test {
     useJUnitPlatform()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+
+    systemProperties System.properties
 }
 
 
