@@ -31,7 +31,7 @@ public class LoginTest extends BaseTest{
     public void testLoginSuccess() {
         this.loginPage.login("frank.atencio.loreth@gmail.com","admin@123456");
         homePage = new HomeLoginPage(this.driver);
-        Assert.assertEquals("Login Successfully", homePage.loginSuccessFullyMsg());
+        Assert.assertEquals("Login", homePage.loginSuccessFullyMsg());
     }
 
     @Test

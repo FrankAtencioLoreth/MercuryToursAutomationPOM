@@ -11,10 +11,16 @@ repositories {
 }
 
 ext {
-    seleniumVersion = '4.6.0'
+    seleniumVersion = '4.7.1'
     jUnitVersion = '4.13.2'
     allureVersion = '2.20.0'
     aspectjweaverVersion = '1.9.9.1'
+    commonsIoVersion = '2.11.0'
+    jupiterVersion = '5.8.1'
+    junitVintageEngineVersion = '5.9.0'
+    slf4jVersion = '2.0.5'
+    assertjCoreVersion = '3.23.1'
+    assertSimpleVersion = '1.7.30'
 }
 
 allure {
@@ -24,19 +30,20 @@ allure {
 }
 
 dependencies {
-    testImplementation 'junit:junit:'+"$rootProject.ext.jUnitVersion"
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.9.0'
-    implementation 'org.slf4j:slf4j-simple:1.7.30'
-    testImplementation "org.assertj:assertj-core:3.11.1"
-    implementation 'org.slf4j:slf4j-simple:1.7.30'
-    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: "$rootProject.ext.seleniumVersion"
+    testImplementation "junit:junit:$rootProject.ext.jUnitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter:$rootProject.ext.jupiterVersion"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$rootProject.ext.junitVintageEngineVersion"
+    implementation "org.slf4j:slf4j-simple:$rootProject.ext.slf4jVersion"
+    testImplementation "org.assertj:assertj-core:$rootProject.ext.assertjCoreVersion"
+    implementation "org.slf4j:slf4j-simple:$rootProject.ext.assertSimpleVersion"
+    implementation "org.seleniumhq.selenium:selenium-java:$rootProject.ext.seleniumVersion"
     implementation "io.qameta.allure:allure-junit5:$rootProject.ext.allureVersion"
     implementation "io.qameta.allure:allure-commandline:$rootProject.ext.allureVersion"
     implementation "io.qameta.allure:allure-assertj:$rootProject.ext.allureVersion"
     implementation "io.qameta.allure:allure-rest-assured:$rootProject.ext.allureVersion"
     implementation "io.qameta.allure:allure-java-commons:$rootProject.ext.allureVersion"
     implementation "org.aspectj:aspectjweaver:$rootProject.ext.aspectjweaverVersion"
+    implementation "commons-io:commons-io:$rootProject.ext.commonsIoVersion"
 }
 
 test {

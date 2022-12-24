@@ -19,6 +19,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(this.time));
     }
 
     public boolean titleIs() {
@@ -37,6 +38,11 @@ public class BasePage {
         this.delay(this.d);
         WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(this.time));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
+    }
+
+    public void clear(By locator) {
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(this.time));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).clear();
     }
 
     public boolean isDisplayed(By locator) {
