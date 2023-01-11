@@ -12,7 +12,6 @@ import java.util.concurrent.TimeUnit;
 
 public class BasePage {
 
-    private Properties conf;
     private final WebDriver driver;
     private Integer time = 20;
     private Integer d = 0;
