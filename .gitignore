@@ -15,6 +15,9 @@ log/
 target/
 hooks/pre-push
 
+#Allure reports
+allure-results/
+
 # Java
 build/
 out/
